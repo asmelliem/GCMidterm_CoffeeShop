@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCMidterm_CoffeeShop", "GCMidterm_CoffeeShop\GCMidterm_CoffeeShop.csproj", "{7CA6DE87-5792-4088-9717-DD0923062091}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CA6DE87-5792-4088-9717-DD0923062091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CA6DE87-5792-4088-9717-DD0923062091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CA6DE87-5792-4088-9717-DD0923062091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CA6DE87-5792-4088-9717-DD0923062091}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8016E651-A56B-4A31-8F3D-B7105D68BBBA}
+	EndGlobalSection
+EndGlobal
