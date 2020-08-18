@@ -29,5 +29,10 @@ namespace GCMidterm_CoffeeShop
         {
             GrandTotal = Math.Round(SubTotal * 0.06, 2);
         }
+
+        public void PrintReceipt(List<Product> orderItems)
+        {
+            
+        }
     }
 }

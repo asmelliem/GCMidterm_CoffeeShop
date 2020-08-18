@@ -11,12 +11,15 @@ namespace GCMidterm_CoffeeShop
 
         public double Price{ get; set; }
 
-        public Product(string name, string category, string description, double price)
+        public int ID { get; set; }
+
+        public Product(int id, string name, string category, string description, double price)
         {
             Name = name;
             Category = category;
             Description = description;
             Price = price;
+            ID = id;
         }
     }
 }
