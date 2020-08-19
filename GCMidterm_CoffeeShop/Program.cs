@@ -18,6 +18,11 @@ namespace GCMidterm_CoffeeShop
             RegisterService registerService = new RegisterService();
             registerService.PrintMenu(productList);
             Console.WriteLine("Please choose the number of the item you want");
+            var productChoice = int.Parse(Console.ReadLine());
+            Console.WriteLine("How many would you like to order: ");
+            var productQuantity = int.Parse(Console.ReadLine());
+
+
             Console.WriteLine("You chose One Latte is this correct");
             Console.WriteLine("Would you like to add more lattes");
             Console.WriteLine("Subtotel:");
