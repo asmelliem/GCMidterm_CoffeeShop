@@ -34,5 +34,15 @@ namespace GCMidterm_CoffeeShop
         {
             
         }
+        public void PrintMenu(List<Product> productList)
+        {
+            Console.WriteLine("#. Name, Category, Description, Price");
+            foreach (var product in productList)
+            {
+                Console.WriteLine($"{product.ID}. {product.Name}, {product.Category}, {product.Description}, {product.Price}");
+            }
+        }
+
+
     }
 }
