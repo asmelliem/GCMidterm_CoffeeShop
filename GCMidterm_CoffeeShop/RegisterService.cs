@@ -10,6 +10,8 @@ namespace GCMidterm_CoffeeShop
         public double SubTotal { get; set; }
         public double GrandTotal { get; set; }
 
+        public double SalesTax { get; set; }
+
         public double CalculateLineTotal(int quantity, double price)
         {
             return price * quantity;
@@ -27,7 +29,12 @@ namespace GCMidterm_CoffeeShop
 
         public void CalculateGrandTotal()
         {
-            GrandTotal = Math.Round(SubTotal * 0.06, 2);
+            GrandTotal = Math.Round(SubTotal * 1.06, 2);
+        }
+
+        public void CalculateSalesTax()
+        {
+            SalesTax = Math.Round(GrandTotal - SubTotal, 2);           
         }
 
         public void PrintReceipt(List<Product> orderItems)
