@@ -76,6 +76,8 @@ namespace GCMidterm_CoffeeShop
                 Console.WriteLine("Enter check number:");
                 int checkNumber = int.Parse(Console.ReadLine());
                 Check check = new Check(checkNumber);
+                Console.WriteLine("Here is your receipt");
+                registerService.PrintCheckReceipt(orderList, check);
             }
 
             //return menu for a new order.

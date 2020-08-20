@@ -75,6 +75,31 @@ namespace GCMidterm_CoffeeShop
             }
             
         }
+        public void PrintCheckReceipt(List<Product> orderItems, Check check)
+        {
+            foreach (var item in orderItems)
+            {
+                Console.WriteLine("{0,-30} {1,5}", item.Name, item.Price);
+            }
+            Console.WriteLine($"Subtotal:{SubTotal}");
+            Console.WriteLine($"Grand Total:{GrandTotal}");
+            Console.WriteLine($"Check Payment - Tender Amount: {GrandTotal}");
+            Console.Write("Account Number: ");
+            var checkNum = check.CheckNumber.ToString().ToCharArray();
+
+            for (int i = 0; i < checkNum.Length; i++)
+            {
+
+                if (i < checkNum.Length - 4)
+                {
+                    Console.Write("x");
+                }
+                else
+                {
+                    Console.Write(checkNum[i]);
+                }
+            }
+        }
         public void PrintMenu(List<Product> productList)
         {
             Console.WriteLine("{0,-3} {1, -30} {2, -30} {3,-150} {4, -10}\n", "ID", "Name", "Category", "Description", "Price");
