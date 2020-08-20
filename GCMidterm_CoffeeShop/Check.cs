@@ -4,9 +4,9 @@ namespace GCMidterm_CoffeeShop
     public class Check
     {
 
-        public int CheckNumber { get; set; }
+        public string CheckNumber { get; set; }
 
-        public Check(int checkNumber)
+        public Check(string checkNumber)
         {
             CheckNumber = checkNumber;
         }

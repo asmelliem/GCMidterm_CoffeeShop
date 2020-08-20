@@ -6,10 +6,10 @@ namespace GCMidterm_CoffeeShop
 {
     public class Card
     {
-        public int CardNum { set; get; }
+        public string CardNum { set; get; }
         public string ExpDate { set; get; }
-        public int CVV { set; get; }
-        public Card(int cardNum, string expDate, int cvv)
+        public string CVV { set; get; }
+        public Card(string cardNum, string expDate, string cvv)
         {
             CardNum = cardNum;
             ExpDate = expDate;

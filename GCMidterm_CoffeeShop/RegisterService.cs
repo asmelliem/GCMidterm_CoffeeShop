@@ -8,6 +8,7 @@ namespace GCMidterm_CoffeeShop
     public class RegisterService
     {
         public double SubTotal { get; set; }
+
         public double GrandTotal { get; set; }
 
         public double SalesTax { get; set; }
@@ -59,7 +60,7 @@ namespace GCMidterm_CoffeeShop
             Console.WriteLine($"Grand Total:{GrandTotal}");
             Console.WriteLine($"Card Payment - Tender Amount: {GrandTotal}");
             Console.Write("Card Number: ");
-            var cardNum = card.CardNum.ToString().ToCharArray();
+            var cardNum = card.CardNum.ToCharArray();
 
             for (int i = 0; i <cardNum.Length; i++)
             {
@@ -85,7 +86,7 @@ namespace GCMidterm_CoffeeShop
             Console.WriteLine($"Grand Total:{GrandTotal}");
             Console.WriteLine($"Check Payment - Tender Amount: {GrandTotal}");
             Console.Write("Account Number: ");
-            var checkNum = check.CheckNumber.ToString().ToCharArray();
+            var checkNum = check.CheckNumber.ToCharArray();
 
             for (int i = 0; i < checkNum.Length; i++)
             {
@@ -100,6 +101,7 @@ namespace GCMidterm_CoffeeShop
                 }
             }
         }
+
         public void PrintMenu(List<Product> productList)
         {
             Console.WriteLine("{0,-3} {1, -30} {2, -30} {3,-150} {4, -10}\n", "ID", "Name", "Category", "Description", "Price");
