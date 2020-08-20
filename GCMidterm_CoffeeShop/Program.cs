@@ -54,7 +54,10 @@ namespace GCMidterm_CoffeeShop
                 Console.WriteLine("Enter total cash amount:");
                 double amountGiven = double.Parse(Console.ReadLine());
                 Cash cash = new Cash(amountGiven);
-                Console.WriteLine($"Your change is:{cash.GetChange(registerService.GrandTotal)}");
+                cash.GetChange(registerService.GrandTotal);
+                Console.WriteLine($"Your change is:{cash.Change}");
+                Console.WriteLine("Here is your receipt");
+                registerService.PrintCashReceipt(orderList,cash);
             }
             else if(paymentChoice == 2)
             {

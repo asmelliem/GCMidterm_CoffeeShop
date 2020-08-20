@@ -37,9 +37,16 @@ namespace GCMidterm_CoffeeShop
             SalesTax = Math.Round(GrandTotal - SubTotal, 2);           
         }
 
-        public void PrintReceipt(List<Product> orderItems)
+        public void PrintCashReceipt(List<Product> orderItems, Cash cash)
         {
-            
+            foreach (var item in orderItems)
+            {
+                Console.WriteLine("{0,30} {1,5}",item.Name,item.Price);
+            }
+            Console.WriteLine($"Subtotal:{SubTotal}");
+            Console.WriteLine($"Grand Total:{GrandTotal}");
+            Console.WriteLine($"Amount Tendered:{cash.AmountGiven}");
+            Console.WriteLine($"Change:{cash.Change}");
         }
         public void PrintMenu(List<Product> productList)
         {
