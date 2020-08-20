@@ -68,6 +68,8 @@ namespace GCMidterm_CoffeeShop
                 Console.WriteLine("Enter the CVV number:");
                 int cvv = int.Parse(Console.ReadLine());
                 Card card = new Card(cardNum, expDate, cvv);
+                Console.WriteLine("Here is your receipt");
+                registerService.PrintCardReceipt(orderList, card);
             }
             else
             {
@@ -76,9 +78,6 @@ namespace GCMidterm_CoffeeShop
                 Check check = new Check(checkNumber);
             }
 
-            //add line item to ask for props of payment type. Ex cash => amount given.
-            Console.WriteLine("Below is your receipt.  Thank you for your business. Please come again");
-            //include items ordered and quantity, subtotal, grand total, and payment info.
             //return menu for a new order.
         }
 

@@ -41,12 +41,39 @@ namespace GCMidterm_CoffeeShop
         {
             foreach (var item in orderItems)
             {
-                Console.WriteLine("{0,30} {1,5}",item.Name,item.Price);
+                Console.WriteLine("{0,-30} {1,5}",item.Name,item.Price);
             }
             Console.WriteLine($"Subtotal:{SubTotal}");
             Console.WriteLine($"Grand Total:{GrandTotal}");
             Console.WriteLine($"Amount Tendered:{cash.AmountGiven}");
             Console.WriteLine($"Change:{cash.Change}");
+        }
+
+        public void PrintCardReceipt(List<Product> orderItems, Card card)
+        {
+            foreach (var item in orderItems)
+            {
+                Console.WriteLine("{0,-30} {1,5}", item.Name, item.Price);
+            }
+            Console.WriteLine($"Subtotal:{SubTotal}");
+            Console.WriteLine($"Grand Total:{GrandTotal}");
+            Console.WriteLine($"Card Payment - Tender Amount: {GrandTotal}");
+            Console.Write("Card Number: ");
+            var cardNum = card.CardNum.ToString().ToCharArray();
+
+            for (int i = 0; i <cardNum.Length; i++)
+            {
+                
+                if(i < cardNum.Length - 4)
+                {
+                    Console.Write("x");
+                }
+                else
+                {
+                    Console.Write(cardNum[i]);
+                }
+            }
+            
         }
         public void PrintMenu(List<Product> productList)
         {

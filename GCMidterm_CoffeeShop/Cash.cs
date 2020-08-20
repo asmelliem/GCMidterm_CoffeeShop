@@ -7,7 +7,9 @@ namespace GCMidterm_CoffeeShop
     public class Cash
     {
         public double AmountGiven { set; get; }
+
         public double Change { set; get; }
+
         public Cash(double amountGiven)
         {
             AmountGiven = amountGiven;
