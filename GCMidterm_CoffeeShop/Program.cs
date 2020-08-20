@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace GCMidterm_CoffeeShop
 {
@@ -7,24 +8,22 @@ namespace GCMidterm_CoffeeShop
         static void Main(string[] args)
         {
             FileService fileService = new FileService();
-
             var productList = fileService.GetProductList();
-
-
-
             
             Console.WriteLine("Welcome to Grand Circus Coffee Shop!!");
             Console.WriteLine("Menu Items");
             RegisterService registerService = new RegisterService();
+
             registerService.PrintMenu(productList);
             Console.WriteLine("Please choose the number of the item you want");
             var productChoice = int.Parse(Console.ReadLine());
+            var product = productList.Where(x => x.ID == productChoice).FirstOrDefault();
             Console.WriteLine("How many would you like to order: ");
             var productQuantity = int.Parse(Console.ReadLine());
-
-
-            Console.WriteLine("You chose One Latte is this correct");
-            Console.WriteLine("Would you like to add more lattes");
+            var lineTotal = registerService.CalculateLineTotal(productQuantity, product.Price);
+            Console.WriteLine($"Here is your line total: ${lineTotal}");
+            
+            Console.WriteLine("Is your order complete or would you like to add more items?");
             Console.WriteLine("Subtotel:");
             Console.WriteLine("Sales Tax:");
             Console.WriteLine("Grand Total:");
