@@ -4,9 +4,8 @@ using System.Text;
 
 namespace GCMidterm_CoffeeShop
 {
-    class Cash
+    public class Cash
     {
-        public double Change { set; get; }
         public double AmountGiven { set; get; }
 
         public Cash(double amountGiven)
@@ -14,10 +13,9 @@ namespace GCMidterm_CoffeeShop
             AmountGiven = amountGiven;
         }
 
-        public void GetChange(double grandTotal)
+        public double GetChange(double grandTotal)
         {
-            Change = AmountGiven - grandTotal;
+            return Math.Round(AmountGiven - grandTotal,2);
         }
-
     }
 }

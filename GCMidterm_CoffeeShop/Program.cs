@@ -47,7 +47,32 @@ namespace GCMidterm_CoffeeShop
             Console.WriteLine($"Sales Tax: ${registerService.SalesTax}");            
             Console.WriteLine($"Grand Total: ${registerService.GrandTotal}");
 
-            Console.WriteLine("How will you be paying? Cash, Credit, or Check");
+            Console.WriteLine("How will you be paying? 1. Cash, 2. Credit, or 3. Check");
+            var paymentChoice = int.Parse(Console.ReadLine());
+            if(paymentChoice == 1)
+            {
+                Console.WriteLine("Enter total cash amount:");
+                double amountGiven = double.Parse(Console.ReadLine());
+                Cash cash = new Cash(amountGiven);
+                Console.WriteLine($"Your change is:{cash.GetChange(registerService.GrandTotal)}");
+            }
+            else if(paymentChoice == 2)
+            {
+                Console.WriteLine("Enter your card number:");
+                int cardNum = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the expiration date(MM/YYYY):");
+                string expDate = Console.ReadLine();
+                Console.WriteLine("Enter the CVV number:");
+                int cvv = int.Parse(Console.ReadLine());
+                Card card = new Card(cardNum, expDate, cvv);
+            }
+            else
+            {
+                Console.WriteLine("Enter check number:");
+                int checkNumber = int.Parse(Console.ReadLine());
+                Check check = new Check(checkNumber);
+            }
+
             //add line item to ask for props of payment type. Ex cash => amount given.
             Console.WriteLine("Below is your receipt.  Thank you for your business. Please come again");
             //include items ordered and quantity, subtotal, grand total, and payment info.
