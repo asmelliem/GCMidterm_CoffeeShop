@@ -15,7 +15,7 @@ namespace GCMidterm_CoffeeShop
 
         public double CalculateLineTotal(int quantity, double price)
         {
-            return price * quantity;
+            return Math.Round(price * quantity, 2);
         }
 
         public void CalcualateSubtotal(List<Product> orderItems)
@@ -44,10 +44,10 @@ namespace GCMidterm_CoffeeShop
             {
                 Console.WriteLine("{0,-30} {1,5}",item.Name,$"${item.Price}");
             }
-            Console.WriteLine($"Subtotal:${SubTotal}");
-            Console.WriteLine($"Grand Total:${GrandTotal}");
-            Console.WriteLine($"Amount Tendered:${cash.AmountGiven}");
-            Console.WriteLine($"Change:${String.Format("{0:0.00}",cash.Change)}");
+            Console.WriteLine("{0,-30} {1,5}", "Subtotal:", $"${String.Format("{0:0.00}", SubTotal)}");
+            Console.WriteLine("{0,-30} {1,5}", "Grand Total:", $"${String.Format("{0:0.00}", GrandTotal)}");
+            Console.WriteLine("{0,-30} {1,5}", "Amount Tendered:", $"${String.Format("{0:0.00}", cash.AmountGiven)}");
+            Console.WriteLine("{0,-30} {1,5}", "Change:", $"${String.Format("{0:0.00}",cash.Change)}");
         }
 
         public void PrintCardReceipt(List<Product> orderItems, Card card)
@@ -56,9 +56,9 @@ namespace GCMidterm_CoffeeShop
             {
                 Console.WriteLine("{0,-30} {1,5}", item.Name, $"${item.Price}");
             }
-            Console.WriteLine($"Subtotal:${SubTotal}");
-            Console.WriteLine($"Grand Total:${GrandTotal}");
-            Console.WriteLine($"Card Payment - Tender Amount: ${GrandTotal}");
+            Console.WriteLine("{0,-30} {1,5}", "Subtotal:", $"${String.Format("{0:0.00}", SubTotal)}");
+            Console.WriteLine("{0,-30} {1,5}", "Grand Total:", $"${String.Format("{0:0.00}", GrandTotal)}");
+            Console.WriteLine("{0,-30} {1,5}", "Card Payment - Tender Amount:", $"${String.Format("{0:0.00}", GrandTotal)}");
             Console.Write("Card Number: ");
             var cardNum = card.CardNum.ToCharArray();
 
@@ -82,9 +82,9 @@ namespace GCMidterm_CoffeeShop
             {
                 Console.WriteLine("{0,-30} {1,5}", item.Name, $"${item.Price}");
             }
-            Console.WriteLine($"Subtotal:${SubTotal}");
-            Console.WriteLine($"Grand Total:${GrandTotal}");
-            Console.WriteLine($"Check Payment - Tender Amount: ${GrandTotal}");
+            Console.WriteLine("{0,-30} {1,5}", "Subtotal:", $"${String.Format("{0:0.00}", SubTotal)}");
+            Console.WriteLine("{0,-30} {1,5}", "Grand Total:", $"${String.Format("{0:0.00}", GrandTotal)}");
+            Console.WriteLine("{0,-30} {1,5}", "Check Payment - Tender Amount:", $"${String.Format("{0:0.00}", GrandTotal)}");
             Console.Write("Account Number: ");
             var checkNum = check.CheckNumber.ToCharArray();
 

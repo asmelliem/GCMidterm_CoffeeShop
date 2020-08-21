@@ -32,7 +32,7 @@ namespace GCMidterm_CoffeeShop
                     var productQuantity = int.Parse(Console.ReadLine());
                     var lineTotal = registerService.CalculateLineTotal(productQuantity, product.Price);
 
-                    Console.WriteLine($"Here is your line total: ${lineTotal}\n");
+                    Console.WriteLine($"Here is your line total: ${String.Format("{0:0.00}", lineTotal)}\n");
 
                     for (int i = 1; i <= productQuantity; i++)
                     {
@@ -47,9 +47,10 @@ namespace GCMidterm_CoffeeShop
                 registerService.CalculateGrandTotal();
                 registerService.CalculateSalesTax();
                 Console.WriteLine("\n\nTotal");
-                Console.WriteLine($"Subtotal: ${registerService.SubTotal}");
-                Console.WriteLine($"Sales Tax: ${registerService.SalesTax}");
-                Console.WriteLine($"Grand Total: ${registerService.GrandTotal}");
+                //Fix format for subtotal, sales tax, and grand total to display 2 decimal places
+                Console.WriteLine("{0,-30} {1,5}", "Subtotal:", $"${String.Format("{0:0.00}", registerService.SubTotal)}");
+                Console.WriteLine("{0,-30} {1,5}", "Sales Tax:", $"${String.Format("{0:0.00}", registerService.SalesTax)}");
+                Console.WriteLine("{0,-30} {1,5}", "Grand Total:", $"${String.Format("{0:0.00}", registerService.GrandTotal)}");
 
                 Console.WriteLine("\nHow will you be paying? 1. Cash, 2. Credit, or 3. Check");
                 var paymentChoice = int.Parse(Console.ReadLine());
@@ -60,7 +61,7 @@ namespace GCMidterm_CoffeeShop
                     double amountGiven = double.Parse(Console.ReadLine());
                     Cash cash = new Cash(amountGiven);
                     cash.GetChange(registerService.GrandTotal);
-                    Console.WriteLine($"Your change is:{String.Format("{0:0.00}",cash.Change)}");
+                    Console.WriteLine("{0,-30} {1,5}", "Your change is:", $"${String.Format("{0:0.00}",cash.Change)}");
                     Console.WriteLine("\nHere is your receipt");
                     registerService.PrintCashReceipt(orderList, cash);
                 }
