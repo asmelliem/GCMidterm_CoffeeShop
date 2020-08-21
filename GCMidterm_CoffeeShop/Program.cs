@@ -60,7 +60,7 @@ namespace GCMidterm_CoffeeShop
                     double amountGiven = double.Parse(Console.ReadLine());
                     Cash cash = new Cash(amountGiven);
                     cash.GetChange(registerService.GrandTotal);
-                    Console.WriteLine($"Your change is:{cash.Change}");
+                    Console.WriteLine($"Your change is:{String.Format("{0:0.00}",cash.Change)}");
                     Console.WriteLine("\nHere is your receipt");
                     registerService.PrintCashReceipt(orderList, cash);
                 }

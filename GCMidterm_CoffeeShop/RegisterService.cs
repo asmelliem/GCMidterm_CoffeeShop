@@ -42,23 +42,23 @@ namespace GCMidterm_CoffeeShop
         {
             foreach (var item in orderItems)
             {
-                Console.WriteLine("{0,-30} {1,5}",item.Name,item.Price);
+                Console.WriteLine("{0,-30} {1,5}",item.Name,$"${item.Price}");
             }
-            Console.WriteLine($"Subtotal:{SubTotal}");
-            Console.WriteLine($"Grand Total:{GrandTotal}");
-            Console.WriteLine($"Amount Tendered:{cash.AmountGiven}");
-            Console.WriteLine($"Change:{cash.Change}");
+            Console.WriteLine($"Subtotal:${SubTotal}");
+            Console.WriteLine($"Grand Total:${GrandTotal}");
+            Console.WriteLine($"Amount Tendered:${cash.AmountGiven}");
+            Console.WriteLine($"Change:${String.Format("{0:0.00}",cash.Change)}");
         }
 
         public void PrintCardReceipt(List<Product> orderItems, Card card)
         {
             foreach (var item in orderItems)
             {
-                Console.WriteLine("{0,-30} {1,5}", item.Name, item.Price);
+                Console.WriteLine("{0,-30} {1,5}", item.Name, $"${item.Price}");
             }
-            Console.WriteLine($"Subtotal:{SubTotal}");
-            Console.WriteLine($"Grand Total:{GrandTotal}");
-            Console.WriteLine($"Card Payment - Tender Amount: {GrandTotal}");
+            Console.WriteLine($"Subtotal:${SubTotal}");
+            Console.WriteLine($"Grand Total:${GrandTotal}");
+            Console.WriteLine($"Card Payment - Tender Amount: ${GrandTotal}");
             Console.Write("Card Number: ");
             var cardNum = card.CardNum.ToCharArray();
 
@@ -80,11 +80,11 @@ namespace GCMidterm_CoffeeShop
         {
             foreach (var item in orderItems)
             {
-                Console.WriteLine("{0,-30} {1,5}", item.Name, item.Price);
+                Console.WriteLine("{0,-30} {1,5}", item.Name, $"${item.Price}");
             }
-            Console.WriteLine($"Subtotal:{SubTotal}");
-            Console.WriteLine($"Grand Total:{GrandTotal}");
-            Console.WriteLine($"Check Payment - Tender Amount: {GrandTotal}");
+            Console.WriteLine($"Subtotal:${SubTotal}");
+            Console.WriteLine($"Grand Total:${GrandTotal}");
+            Console.WriteLine($"Check Payment - Tender Amount: ${GrandTotal}");
             Console.Write("Account Number: ");
             var checkNum = check.CheckNumber.ToCharArray();
 
