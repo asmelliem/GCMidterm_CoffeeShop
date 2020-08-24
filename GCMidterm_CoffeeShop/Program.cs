@@ -10,6 +10,7 @@ namespace GCMidterm_CoffeeShop
         static void Main(string[] args)
         {
             FileService fileService = new FileService();
+            Validator validator = new Validator();
             var productList = fileService.GetProductList();
 
             do
