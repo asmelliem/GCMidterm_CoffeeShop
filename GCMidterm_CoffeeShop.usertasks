@@ -1,0 +1,9 @@
+<ListOfTaskListEntry>
+  <TaskListEntry file="" description="Format dollar amounts, anything with a $ sign." completed="True" />
+  <TaskListEntry file="" description="User input: correct number of card digits" />
+  <TaskListEntry file="" description="User input: validate date input" />
+  <TaskListEntry file="" description="User Input: validate cvv as three digits" />
+  <TaskListEntry file="" description="research how to validate" />
+  <TaskListEntry file="" description="user choice for card, credit, cash make sure it is 1, 2, or 3" />
+  <TaskListEntry file="" description="validation class" />
+</ListOfTaskListEntry>
