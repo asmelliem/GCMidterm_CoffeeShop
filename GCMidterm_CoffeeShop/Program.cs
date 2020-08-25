@@ -77,16 +77,27 @@ namespace GCMidterm_CoffeeShop
                         orderList.Add(product);
                     }
 
-                    Console.WriteLine("Press Y to add more items or N for total");
-                    var addMoreItems = Console.ReadLine();
-                    if (addMoreItems.ToUpper() == "Y")
+                    var askForMoreItems = false;
+                    do
                     {
-                        proceed = false;
-                    }
-                    else
-                    {
-                        proceed = true;
-                    }
+                        Console.WriteLine("Press Y to add more items or N for total");
+                        var addMoreItems = Console.ReadLine();
+                        if (addMoreItems.ToUpper() == "Y")
+                        {
+                            askForMoreItems = true;
+                            proceed = false;
+                        }
+                        else if (addMoreItems.ToUpper() == "N")
+                        {
+                            askForMoreItems = true;
+                            proceed = true;
+                        }
+                        else
+                        {
+                            askForMoreItems = false;
+                        }
+                    } while (askForMoreItems == false);
+                    
                 } while (proceed == false);
 
                 registerService.CalcualateSubtotal(orderList);
