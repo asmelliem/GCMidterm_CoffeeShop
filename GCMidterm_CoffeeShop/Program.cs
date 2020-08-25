@@ -106,12 +106,13 @@ namespace GCMidterm_CoffeeShop
                     Console.WriteLine("   2. Credit");
                     Console.WriteLine("   3. Check");
                     Console.Write("\nHow will you be paying? ");
+                    var paymentChoiceInput = Console.ReadLine();
 
-
-
-                    var paymentChoice = int.Parse(Console.ReadLine());
-
-
+                    if (!int.TryParse(paymentChoiceInput, out var paymentChoice))
+                    {
+                        Console.WriteLine("Please choose a valid payment option");
+                        continue;
+                    }
 
                     if (paymentChoice == CASH)
                     {
