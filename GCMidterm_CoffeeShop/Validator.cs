@@ -1,23 +1,37 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+
 namespace GCMidterm_CoffeeShop
 {
     public class Validator
     {
-        public bool ValidateExperationDate(DateTime expDate)
+        string regex = @"^\d+$";
+        string regexDate = "(0[1-9]|10|11|12)/20[0-9]{2}$";
+
+        public bool ValidateExperationDate(string expDate)
         {
-            if(expDate >= DateTime.Now.Date)
+            if(Regex.IsMatch(expDate,regexDate))
             {
-                return true;
+                var convertedDate = Convert.ToDateTime(expDate);
+                if (convertedDate >= DateTime.Now.Date)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
                 return false;
             }
+            
         }
 
         public bool ValidateCardNumber(string cardNumber)
         {
-            if (cardNumber.Length == 16)
+            if (cardNumber.Length == 16 && Regex.IsMatch(cardNumber, regex))
             {
                 return true;
             }
@@ -28,7 +42,7 @@ namespace GCMidterm_CoffeeShop
         }
         public bool ValidateCheckNumber(string checkNum)
         {
-            if (checkNum.Length == 10)
+            if (checkNum.Length == 10 && Regex.IsMatch(checkNum, regex))
             {
                 return true;
             }
@@ -39,7 +53,7 @@ namespace GCMidterm_CoffeeShop
         }
         public bool ValidateCVV(string cvv)
         {
-            if(cvv.Length == 3)
+            if(cvv.Length == 3 && Regex.IsMatch(cvv, regex))
             {
                 return true;
             }
