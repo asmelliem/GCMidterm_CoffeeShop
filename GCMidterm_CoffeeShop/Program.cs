@@ -11,6 +11,7 @@ namespace GCMidterm_CoffeeShop
         static void Main(string[] args)
         {
             FileService fileService = new FileService();
+            PaymentService paymentService = new PaymentService();
             Validator validator = new Validator();
             var productList = fileService.GetProductList();
 
@@ -104,9 +105,9 @@ namespace GCMidterm_CoffeeShop
                 registerService.CalculateGrandTotal();
                 registerService.CalculateSalesTax();
                 Console.WriteLine("\n\nTotal");
-                Console.WriteLine("{0,-30} {1,5}", "Subtotal:", $"${String.Format("{0:0.00}", registerService.SubTotal)}");
-                Console.WriteLine("{0,-30} {1,5}", "Sales Tax:", $"${String.Format("{0:0.00}", registerService.SalesTax)}");
-                Console.WriteLine("{0,-30} {1,5}", "Grand Total:", $"${String.Format("{0:0.00}", registerService.GrandTotal)}");
+                Console.WriteLine("{0,-30} {1,5}", "Subtotal:", registerService.SubTotal.ToString("C", CultureInfo.CurrentCulture));
+                Console.WriteLine("{0,-30} {1,5}", "Sales Tax:", registerService.SalesTax.ToString("C", CultureInfo.CurrentCulture)); ;
+                Console.WriteLine("{0,-30} {1,5}", "Grand Total:", registerService.GrandTotal.ToString("C", CultureInfo.CurrentCulture));
 
                 bool paymentProceed = false;
                 do
@@ -127,25 +128,8 @@ namespace GCMidterm_CoffeeShop
 
                     if (paymentChoice == CASH)
                     {
-                        bool isAmountValid = false;
-                        double amountGiven = 0;
-                        while (!isAmountValid)
-                        {
-                            Console.WriteLine("\nEnter total cash amount: ");
-                            amountGiven = double.Parse(Console.ReadLine());
-                            isAmountValid = validator.ValidateAmountGiven(amountGiven, registerService.GrandTotal);
-                            if (!isAmountValid)
-                            {
-                                Console.WriteLine("Invalid cash amount. Don't be cheap!");
-                            }
-                        }
+                        paymentProceed = paymentService.UseCashPayment(paymentProceed, registerService, orderList);
 
-                        Cash cash = new Cash(amountGiven);
-                        cash.GetChange(registerService.GrandTotal);
-                        Console.WriteLine("{0,-30} {1,5}", "Your change is:", $"${String.Format("{0:0.00}", cash.Change)}");
-                        Console.WriteLine("\nHere is your receipt");
-                        registerService.PrintCashReceipt(orderList, cash);
-                        paymentProceed = true;
                     }
                     else if (paymentChoice == CARD)
                     {
