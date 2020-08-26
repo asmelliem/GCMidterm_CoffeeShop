@@ -128,56 +128,12 @@ namespace GCMidterm_CoffeeShop
 
                     if (paymentChoice == CASH)
                     {
-                        paymentProceed = paymentService.UseCashPayment(paymentProceed, registerService, orderList);
+                        paymentProceed = paymentService.UseCashPayment(registerService, orderList);
 
                     }
                     else if (paymentChoice == CARD)
                     {
-                        bool isValidCard = false;
-                        bool isValidExpiryDate = false;
-                        bool isValidCVV = false;
-                        string cardNum = string.Empty;
-                        string expDate = string.Empty;
-                        var cvv = string.Empty;
-
-                        //Checks to make sure the card number is valid
-                        while (!isValidCard)
-                        {
-                            Console.Write("\nEnter your card number: ");
-                            cardNum = Console.ReadLine();
-                            isValidCard = validator.ValidateCardNumber(cardNum);
-                            if (!isValidCard)
-                            {
-                                Console.WriteLine("Please enter 16 digits Card Number");
-                            }
-                        }
-                        //checks to make sure the card expiration date is valid
-                        while (!isValidExpiryDate)
-                        {
-                            Console.Write("\nEnter the expiration date(MM/YYYY): ");
-                            expDate = Console.ReadLine();
-                            isValidExpiryDate = validator.ValidateExperationDate(expDate);
-                            if (!isValidExpiryDate)
-                            {
-                                Console.WriteLine("\nPlease enter a valid date (MM/YYYY)");
-                            }
-                        }
-                        //checks to make sure the cvv number is valid
-                        while (!isValidCVV)
-                        {
-                            Console.Write("\nEnter the CVV number: ");
-                            cvv = Console.ReadLine();
-                            isValidCVV = validator.ValidateCVV(cvv);
-                            if (!isValidCVV)
-                            {
-                                Console.WriteLine("Please enter a 3 digit CVV number");
-                            }
-                        }
-
-                        Card card = new Card(cardNum, expDate, cvv);
-                        Console.WriteLine("\nHere is your receipt");
-                        registerService.PrintCardReceipt(orderList, card);
-                        paymentProceed = true;
+                        paymentProceed = paymentService.UseCardPayment(registerService, orderList);
                     }
                     else if (paymentChoice == CHECK)
                     {
