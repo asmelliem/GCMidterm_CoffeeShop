@@ -137,22 +137,7 @@ namespace GCMidterm_CoffeeShop
                     }
                     else if (paymentChoice == CHECK)
                     {
-                        var checkNumber = string.Empty;
-                        bool isVaildCheckNumber = false;
-                        while (!isVaildCheckNumber)
-                        {
-                            Console.Write("\nEnter check number: ");
-                            checkNumber = Console.ReadLine();
-                            isVaildCheckNumber = validator.ValidateCheckNumber(checkNumber);
-                            if (!isVaildCheckNumber)
-                            {
-                                Console.WriteLine("Please enter a 10 digit check number");
-                            }
-                        }
-                        Check check = new Check(checkNumber);
-                        Console.WriteLine("\nHere is your receipt");
-                        registerService.PrintCheckReceipt(orderList, check);
-                        paymentProceed = true;
+                        paymentProceed = paymentService.UseCheckPayment(registerService, orderList);
                     }
                     else
                     {
