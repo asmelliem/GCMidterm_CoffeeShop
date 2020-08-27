@@ -14,6 +14,10 @@ namespace GCMidterm_CoffeeShop
         {
             do
             {
+
+                Console.WriteLine("");
+                registerService.PrintMenu(productList);
+                Console.WriteLine("\n\nPlease choose the number of the item you want");
                 var productChoiceInput = Console.ReadLine();
 
                 //Checks to make sure you are entering a number

@@ -14,6 +14,7 @@ namespace GCMidterm_CoffeeShop
             PaymentService paymentService = new PaymentService();
             OrderService orderService = new OrderService();
             var productList = fileService.GetProductList();
+            productList = fileService.AddProductToProductList(true, 13, "testItem", "testCat", "testDescription", 3.99);
 
             int CASH = 1;
             int CARD = 2;
@@ -27,9 +28,7 @@ namespace GCMidterm_CoffeeShop
                 Console.WriteLine("Menu");
                 bool proceed = false;
 
-                Console.WriteLine("");
-                registerService.PrintMenu(productList);
-                Console.WriteLine("\n\nPlease choose the number of the item you want");
+                
 
                 orderList = orderService.GetOrderInfo(proceed, registerService, productList, orderList);
                 registerService.PrintOrderTotals(orderList);
