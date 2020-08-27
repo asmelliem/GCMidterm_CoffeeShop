@@ -27,6 +27,10 @@ namespace GCMidterm_CoffeeShop
                 Console.WriteLine("Menu");
                 bool proceed = false;
 
+                Console.WriteLine("");
+                registerService.PrintMenu(productList);
+                Console.WriteLine("\n\nPlease choose the number of the item you want");
+
                 orderList = orderService.GetOrderInfo(proceed, registerService, productList, orderList);
                 registerService.PrintOrderTotals(orderList);
 
