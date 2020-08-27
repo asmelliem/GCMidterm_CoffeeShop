@@ -112,7 +112,7 @@ namespace GCMidterm_CoffeeShop
             Console.WriteLine("{0,-3} {1, -30} {2, -12} {3,-168} {4, -10}\n", "ID", "Name", "Category", "Description", "Price");
             foreach (var product in productList)
             {
-                Console.WriteLine("{0,-3} {1, -30} {2, -12} {3,-168} {4, -10}", $"{product.ID}", $"{product.Name}", $"{product.Category}", $"{product.Description}", $"${product.Price}");
+                Console.WriteLine("{0,-3} {1, -30} {2, -12} {3,-168} {4, -10}", $"{product.ID}", $"{product.Name}", $"{product.Category}", $"{product.Description}", $"{product.Price.ToString("C",CultureInfo.CurrentCulture)}");
             }
         }
 

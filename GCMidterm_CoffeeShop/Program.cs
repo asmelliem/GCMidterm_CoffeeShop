@@ -28,16 +28,15 @@ namespace GCMidterm_CoffeeShop
                 Console.WriteLine("What would you like to do?:");
                 Console.WriteLine("   1. Add items to the menu");
                 Console.WriteLine("   2. Place an order");
-                var userInput = int.Parse(Console.ReadLine());
-                if(userInput == 1)
+                var userInput = Console.ReadLine();
+                if(userInput == "1")
                 {
                     var productID = productList.Count()+1;
                     var newProduct = menuService.ModifyMenu(productID);
                     fileService.AddProductToProductList(true, newProduct.ID, newProduct.Name, newProduct.Category, newProduct.Description, newProduct.Price, productList);
                     productList = fileService.GetProductList();
-
                 }
-                else
+                else if (userInput == "2")
                 {
                     Console.WriteLine("Menu");
                     bool proceed = false;
@@ -79,6 +78,10 @@ namespace GCMidterm_CoffeeShop
                             continue;
                         }
                     } while (paymentProceed == false);                   
+                }
+                else
+                {
+                    Console.WriteLine("You did not enter a valid option.");
                 }
                 Console.WriteLine("\nEnter 'Y' to place a new order/update menu or 'N' to end program");
             } while (UserContinue());

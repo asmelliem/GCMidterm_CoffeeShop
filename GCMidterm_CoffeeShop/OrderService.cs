@@ -87,8 +87,6 @@ namespace GCMidterm_CoffeeShop
             } while (proceed == false);
 
             return orderList;
-        }
-
-       
+        }       
     }
 }

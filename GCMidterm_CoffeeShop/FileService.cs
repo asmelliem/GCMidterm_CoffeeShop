@@ -7,7 +7,6 @@ namespace GCMidterm_CoffeeShop
 {
     public class FileService
     {
-        
         public List <Product> GetProductList()
         {
             List<Product> productList = new List<Product>();
@@ -30,6 +29,7 @@ namespace GCMidterm_CoffeeShop
                 return productList;
             }
         }
+
         public List<Product> AddProductToProductList(bool canAppend, int ID, string name, string category, string description, double price, List<Product> productList)
         {
             using(StreamWriter writer = new StreamWriter("CoffeeShop_ProductList.txt", canAppend))
