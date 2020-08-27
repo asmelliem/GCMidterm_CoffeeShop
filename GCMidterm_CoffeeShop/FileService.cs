@@ -33,7 +33,7 @@ namespace GCMidterm_CoffeeShop
         {
             using(StreamWriter writer = new StreamWriter("CoffeeShop_ProductList.txt", canAppend))
             {
-              writer.WriteLine($"\n{ID};{name};{category};{description};{price}");
+              writer.WriteLine($"{ID};{name};{category};{description};{price}");
             }
             return productList;
         }

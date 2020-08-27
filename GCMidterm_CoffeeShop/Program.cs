@@ -14,7 +14,8 @@ namespace GCMidterm_CoffeeShop
             PaymentService paymentService = new PaymentService();
             OrderService orderService = new OrderService();
             var productList = fileService.GetProductList();
-            productList = fileService.AddProductToProductList(true, 13, "testItem", "testCat", "testDescription", 3.99);
+            fileService.AddProductToProductList(true, 13, "testItem", "testCat", "testDescription", 3.99);
+            productList = fileService.GetProductList();
 
             int CASH = 1;
             int CARD = 2;
@@ -26,9 +27,7 @@ namespace GCMidterm_CoffeeShop
                 RegisterService registerService = new RegisterService();
                 Console.WriteLine("Welcome to Grand Circus Coffee Shop!!");
                 Console.WriteLine("Menu");
-                bool proceed = false;
-
-                
+                bool proceed = false;                
 
                 orderList = orderService.GetOrderInfo(proceed, registerService, productList, orderList);
                 registerService.PrintOrderTotals(orderList);
