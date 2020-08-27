@@ -5,8 +5,8 @@ namespace GCMidterm_CoffeeShop
 {
     public class Validator
     {
-        string regex = @"^\d+$";
-        string regexDate = "(0[1-9]|10|11|12)/20[0-9]{2}$";
+        string regex = @"^\d+$";//make sure string only contains numbers
+        string regexDate = "(0[1-9]|10|11|12)/20[0-9]{2}$";//make sure that mm/yyyy is the date format
 
         public bool ValidateExperationDate(string expDate)
         {

@@ -9,7 +9,7 @@ namespace GCMidterm_CoffeeShop
     public class OrderService
     {
         Validator validator = new Validator();
-
+        
         public List<Product> GetOrderInfo(bool proceed, RegisterService registerService, List<Product> productList, List<Product> orderList)
         {
             do

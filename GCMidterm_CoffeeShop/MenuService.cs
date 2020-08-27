@@ -6,6 +6,7 @@ namespace GCMidterm_CoffeeShop
 {
     public class MenuService
     {      
+        //Asking user for new menu item information
         public Product ModifyMenu(int id)
         {
             Console.WriteLine("Enter the product name: ");
