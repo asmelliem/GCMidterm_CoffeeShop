@@ -40,6 +40,7 @@ namespace GCMidterm_CoffeeShop
                 return false;
             }
         }
+
         public bool ValidateCheckNumber(string checkNum)
         {
             if (checkNum.Length == 10 && Regex.IsMatch(checkNum, regex))
@@ -51,6 +52,7 @@ namespace GCMidterm_CoffeeShop
                 return false;
             }
         }
+
         public bool ValidateCVV(string cvv)
         {
             if(cvv.Length == 3 && Regex.IsMatch(cvv, regex))

@@ -79,6 +79,7 @@ namespace GCMidterm_CoffeeShop
             }
             
         }
+
         public void PrintCheckReceipt(List<Product> orderItems, Check check)
         {
             foreach (var item in orderItems)
@@ -113,6 +114,17 @@ namespace GCMidterm_CoffeeShop
             {
                 Console.WriteLine("{0,-3} {1, -30} {2, -12} {3,-168} {4, -10}", $"{product.ID}", $"{product.Name}", $"{product.Category}", $"{product.Description}", $"${product.Price}");
             }
+        }
+
+        public void PrintOrderTotals( List<Product> orderList)
+        {
+            CalcualateSubtotal(orderList);
+            CalculateGrandTotal();
+            CalculateSalesTax();
+            Console.WriteLine("\n\nTotal");
+            Console.WriteLine("{0,-30} {1,5}", "Subtotal:", SubTotal.ToString("C", CultureInfo.CurrentCulture));
+            Console.WriteLine("{0,-30} {1,5}", "Sales Tax:", SalesTax.ToString("C", CultureInfo.CurrentCulture)); ;
+            Console.WriteLine("{0,-30} {1,5}", "Grand Total:", GrandTotal.ToString("C", CultureInfo.CurrentCulture));
         }
     }
 }

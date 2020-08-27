@@ -9,7 +9,6 @@ namespace GCMidterm_CoffeeShop
     {
         Validator validator = new Validator();
 
-
         public bool UseCashPayment(RegisterService registerService, List<Product> orderList)
         {
             bool isAmountValid = false;
@@ -89,6 +88,7 @@ namespace GCMidterm_CoffeeShop
             registerService.PrintCardReceipt(orderList, card);
             return true;
         }
+
         public bool UseCheckPayment(RegisterService registerService, List<Product> orderList)
         {
             var checkNumber = string.Empty;
