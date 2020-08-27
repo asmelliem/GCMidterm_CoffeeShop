@@ -14,7 +14,6 @@ namespace GCMidterm_CoffeeShop
         {
             do
             {
-
                 Console.WriteLine("");
                 registerService.PrintMenu(productList);
                 Console.WriteLine("\n\nPlease choose the number of the item you want");
